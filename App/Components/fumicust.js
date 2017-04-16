@@ -37,7 +37,7 @@ export default class Fumicust extends BaseInput {
   };
 
   static defaultProps = {
-    height: 90,
+    height: 150,
     iconColor: '#00aeef',
     animationDuration: 300,
     blurOnSubmit:false
@@ -71,7 +71,7 @@ export default class Fumicust extends BaseInput {
                             left: PADDING,
                             bottom: focusedAnim.interpolate({
                                 inputRange: [0, 0.5, 0.51, 0.7, 1],
-                                outputRange: [60, ANIM_PATH, NEGATIVE_ANIM_PATH, NEGATIVE_ANIM_PATH, 60],
+                                outputRange: [75, ANIM_PATH, NEGATIVE_ANIM_PATH, NEGATIVE_ANIM_PATH, 75],
                             }),
                             color: focusedAnim.interpolate({
                                 inputRange: [0, 0.5, 1],
@@ -122,7 +122,7 @@ export default class Fumicust extends BaseInput {
           onFocus={this._onFocus}
           onChange={this._onChange}
           multiline = {true}
-          numberOfLines = {3}
+          numberOfLines = {8}
           underlineColorAndroid={'transparent'}
         />
       </View>

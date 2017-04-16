@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react'
-import { ScrollView, Text, KeyboardAvoidingView } from 'react-native'
+import { ScrollView, Text, KeyboardAvoidingView, View } from 'react-native'
 import { connect } from 'react-redux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
@@ -14,6 +14,7 @@ import { Actions as NavigationActions } from 'react-native-router-flux'
 
 // Styles
 import styles from './Styles/TextInputScreenStyle'
+import RoundedButton from "../Components/RoundedButton";
 
 // I18n
 import I18n from 'react-native-i18n'
@@ -45,6 +46,12 @@ class TextInputScreen extends React.Component {
             onChangeText={(val) => this.setState({desc: val})}
           />
         </KeyboardAvoidingView>
+        <View style={{backgroundColor:'#F7EDD3',justifyContent:'center', alignItems:'center'}}>
+
+        <RoundedButton onPress={NavigationActions.tis}>
+          Paste text
+        </RoundedButton>
+        </View>
       </ScrollView>
     )
   }
