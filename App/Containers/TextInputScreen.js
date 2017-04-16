@@ -1,23 +1,16 @@
 // @flow
-
-import React from 'react'
-import { ScrollView, Text, KeyboardAvoidingView, View, Clipboard } from 'react-native'
-import { connect } from 'react-redux'
+import React from "react";
+import {ScrollView, Text, KeyboardAvoidingView, View, Clipboard} from "react-native";
+import {connect} from "react-redux";
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
-import { Metrics } from '../Themes'
 // external libs
-import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
-import Fumicust from '../Components/fumicust'
-import Animatable from 'react-native-animatable'
-import { Actions as NavigationActions } from 'react-native-router-flux'
-
+import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
+import Fumicust from "../Components/fumicust";
 // Styles
-import styles from './Styles/TextInputScreenStyle'
+import styles from "./Styles/TextInputScreenStyle";
 import RoundedButton from "../Components/RoundedButton";
-
 // I18n
-import I18n from 'react-native-i18n'
 
 class TextInputScreen extends React.Component {
 
@@ -26,7 +19,7 @@ class TextInputScreen extends React.Component {
     this.clearText = this.clearText.bind(this);
     this.state = {
       desc: '',
-      val:''
+      val: ''
     };
   }
 
@@ -38,7 +31,7 @@ class TextInputScreen extends React.Component {
     this.setState({val: 'alpha'});
   }
 
-  render () {
+  render() {
     return (
       <ScrollView style={styles.container}>
         <KeyboardAvoidingView behavior='position'>
@@ -47,18 +40,37 @@ class TextInputScreen extends React.Component {
             iconClass={FontAwesomeIcon}
             iconName={'exclamation-circle'}
             iconColor={'#f95a25'}
-            placeholder={'Enter Dysfunctional Thought here'}
+            placeholder={'Enter or paste analysis text here'}
             value={this.state.val}
             onChangeText={(val) => this.setState({desc: val, val:val})}
           />
         </KeyboardAvoidingView>
-        <View style={{backgroundColor:'#F7EDD3',justifyContent:'center', alignItems:'center'}}>
+        <View style={styles.analycontainer}>
+        <View style={{backgroundColor:'white',justifyContent:'center', alignItems:'center'}}>
 
-        <RoundedButton onPress={()=>this.setText()}>
-          Paste text
-        </RoundedButton>
+          <RoundedButton onPress={()=>this.setText()}>
+            Paste text
+          </RoundedButton>
 
         </View>
+
+        <View style={{backgroundColor:'#F7EDD3',justifyContent:'center', alignItems:'center'}}>
+          <Text>
+            Results appear here
+
+          </Text>
+
+        </View>
+
+        <View style={{backgroundColor:'#F7EDD3',justifyContent:'center', alignItems:'center'}}>
+
+          <RoundedButton onPress={()=>this.setText()}>
+            Submit
+          </RoundedButton>
+        </View>
+        </View>
+
+
       </ScrollView>
     )
   }
@@ -66,13 +78,11 @@ class TextInputScreen extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return {
-  }
+  return {}
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-  }
+  return {}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TextInputScreen)

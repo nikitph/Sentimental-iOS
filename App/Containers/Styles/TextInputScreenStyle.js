@@ -11,6 +11,14 @@ export default StyleSheet.create({
     justifyContent: 'space-around',
     backgroundColor: '#F7EDD3'
   },
+
+  analycontainer: {
+    flex: 1,
+    height: Metrics.screenHeight - 150 - 16,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    backgroundColor: '#F7EDD3'
+  },
   slideContainer: {
     flex: 0.1,
     marginTop: 64, position: 'relative'
