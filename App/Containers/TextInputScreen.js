@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react'
-import { ScrollView, Text, KeyboardAvoidingView, View } from 'react-native'
+import { ScrollView, Text, KeyboardAvoidingView, View, Clipboard } from 'react-native'
 import { connect } from 'react-redux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
@@ -25,12 +25,17 @@ class TextInputScreen extends React.Component {
     super(props);
     this.clearText = this.clearText.bind(this);
     this.state = {
-      desc: ''
+      desc: '',
+      val:''
     };
   }
 
   clearText() {
     this.refs['desc'].setNativeProps({value: ''});
+  }
+
+  setText() {
+    this.setState({val: 'alpha'});
   }
 
   render () {
@@ -43,14 +48,16 @@ class TextInputScreen extends React.Component {
             iconName={'exclamation-circle'}
             iconColor={'#f95a25'}
             placeholder={'Enter Dysfunctional Thought here'}
-            onChangeText={(val) => this.setState({desc: val})}
+            value={this.state.val}
+            onChangeText={(val) => this.setState({desc: val, val:val})}
           />
         </KeyboardAvoidingView>
         <View style={{backgroundColor:'#F7EDD3',justifyContent:'center', alignItems:'center'}}>
 
-        <RoundedButton onPress={NavigationActions.tis}>
+        <RoundedButton onPress={()=>this.setText()}>
           Paste text
         </RoundedButton>
+
         </View>
       </ScrollView>
     )
