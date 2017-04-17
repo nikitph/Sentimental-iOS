@@ -11,12 +11,10 @@ import Fumicust from '../Components/fumicust'
 import styles from './Styles/TextInputScreenStyle'
 import RoundedButton from '../Components/RoundedButton'
 import SentimentActions from '../Redux/SentimentRedux'
-import {CirclesLoader, PulseLoader, TextLoader, DotsLoader} from 'react-native-indicator'
 import Spinner from '../Components/Spinner'
 // I18n
 
 class TextInputScreen extends React.Component {
-
   constructor (props) {
     super(props)
     this.clearText = this.clearText.bind(this)
@@ -31,7 +29,7 @@ class TextInputScreen extends React.Component {
   }
 
   setText () {
-    this.setState({val: 'alpha'})
+    this.setState({val: Clipboard.getString()})
   }
 
   render () {
@@ -77,7 +75,6 @@ class TextInputScreen extends React.Component {
       </ScrollView>
     )
   }
-
 }
 
 TextInputScreen.propTypes = {

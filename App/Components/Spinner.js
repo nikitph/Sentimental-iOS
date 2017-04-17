@@ -45,7 +45,6 @@ const styles = StyleSheet.create({
 })
 
 export default class Spinner extends React.Component {
-
   constructor (props) {
     super(props)
     this.state = { visible: this.props.visible, textContent: this.props.textContent }
@@ -133,5 +132,4 @@ export default class Spinner extends React.Component {
   render () {
     return this._renderSpinner()
   }
-
 }
