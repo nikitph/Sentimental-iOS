@@ -37,7 +37,7 @@ class WalkThroughScreen extends React.Component {
             <Text
               style={{fontFamily: 'Avenir', textAlign: 'center', color: '#8F7140', fontSize: 16, marginLeft: 25, marginRight: 25, marginTop: -75}}>
               Just Select and copy-paste or type in the text you want to analyze and click analyze. Thats it. </Text>
-            <View style={{marginTop: 75}}>
+            <View style={{marginTop: 25}}>
               <RoundedButton onPress={NavigationActions.tis}>
                 Start
               </RoundedButton>

@@ -1,9 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { View } from 'react-native'
-import MapView from 'react-native-maps'
 import { calculateRegion } from '../Lib/MapHelpers'
-import MapCallout from '../Components/MapCallout'
 import Styles from './Styles/MapviewExampleStyle'
 
 /* ***********************************************************
@@ -92,23 +90,14 @@ class MapviewExample extends React.Component {
     *************************************************************/
 
     return (
-      <MapView.Marker key={location.title} coordinate={{latitude: location.latitude, longitude: location.longitude}}>
-        <MapCallout location={location} onPress={this.calloutPress} />
-      </MapView.Marker>
+     <View />
     )
   }
 
   render () {
     return (
       <View style={Styles.container}>
-        <MapView
-          style={Styles.map}
-          initialRegion={this.state.region}
-          onRegionChangeComplete={this.onRegionChange}
-          showsUserLocation={this.state.showUserLocation}
-        >
-          {this.state.locations.map((location) => this.renderMapMarkers(location))}
-        </MapView>
+
       </View>
     )
   }

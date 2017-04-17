@@ -19,7 +19,6 @@ import ListviewSearchingExample from '../Containers/ListviewSearchingExample'
 import MapviewExample from '../Containers/MapviewExample'
 import APITestingScreen from '../Containers/APITestingScreen'
 import ThemeScreen from '../Containers/ThemeScreen'
-import DeviceInfoScreen from '../Containers/DeviceInfoScreen'
 import WalkThroughScreen from '../Containers/WalkThroughScreen'
 import TextInputScreen from '../Containers/TextInputScreen'
 
@@ -48,7 +47,6 @@ class NavigationRouter extends Component {
             <Scene initial key='wthru' component={WalkThroughScreen} title='Theme' hideNavBar />
 
             {/* Custom navigation bar example */}
-            <Scene key='deviceInfo' component={DeviceInfoScreen} title='Device Info' />
           </Scene>
         </Scene>
       </Router>
