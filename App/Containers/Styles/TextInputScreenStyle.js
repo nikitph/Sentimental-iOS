@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { ApplicationStyles,Metrics } from '../../Themes/'
+import { ApplicationStyles, Metrics } from '../../Themes/'
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
@@ -24,13 +24,13 @@ export default StyleSheet.create({
     marginTop: 64, position: 'relative'
   },
   slide: {
-    flex: 1,
+    flex: 1
   },
   slide1: {
-    backgroundColor: '#F4B459',
+    backgroundColor: '#F4B459'
   },
   slide2: {
-    backgroundColor: '#F4B459',
+    backgroundColor: '#F4B459'
   },
   slide3: {
     backgroundColor: '#F4B459',
@@ -39,6 +39,6 @@ export default StyleSheet.create({
   },
   text: {
     color: '#fff',
-    fontSize: 16,
-  },
+    fontSize: 16
+  }
 })

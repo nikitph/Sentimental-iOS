@@ -18,12 +18,12 @@ const create = (baseURL = 'https://language.googleapis.com/v1/') => {
     },
     // 10 second timeout...
     timeout: 10000
-  });
+  })
 
   // Force OpenWeather API Key on all requests
   api.addRequestTransform((request) => {
     request['key'] = 'AIzaSyCz-86KMvI_tVzthkmyQaiKcYyfP7Sdda8'
-  });
+  })
 
   // Wrap api's addMonitor to allow the calling code to attach
   // additional monitors in the future.  But only in __DEV__ and only
@@ -46,12 +46,12 @@ const create = (baseURL = 'https://language.googleapis.com/v1/') => {
   // Since we can't hide from that, we embrace it by getting out of the
   // way at this level.
   //
-  const getCity = (city) => api.get('weather', {q: city});
+  const getCity = (city) => api.get('weather', {q: city})
 
   const postSentiment = (params) => api.post('documents:analyzeSentiment?key=AIzaSyCz-86KMvI_tVzthkmyQaiKcYyfP7Sdda8', JSON.stringify({
     encodingType: 'UTF8',
     document: {type: 'PLAIN_TEXT', content: params}
-  }));
+  }))
 
   // ------
   // STEP 3

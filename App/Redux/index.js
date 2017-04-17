@@ -11,7 +11,7 @@ export default () => {
     login: require('./LoginRedux').reducer,
     search: require('./SearchRedux').reducer,
     sentiment: require('./SentimentRedux').reducer
-  });
+  })
 
   return configureStore(rootReducer, rootSaga)
 }

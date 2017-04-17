@@ -1,13 +1,12 @@
-import React from 'react';
+import React from 'react'
 import {
   StyleSheet,
   View,
   Text,
   Modal,
   ActivityIndicator
-} from 'react-native';
-import {CirclesLoader, PulseLoader, TextLoader, DotsLoader} from 'react-native-indicator';
-
+} from 'react-native'
+import {CirclesLoader, PulseLoader, TextLoader, DotsLoader} from 'react-native-indicator'
 
 const styles = StyleSheet.create({
   container: {
@@ -36,7 +35,7 @@ const styles = StyleSheet.create({
     right: 0,
     justifyContent: 'center',
     alignItems: 'center',
-    position: 'absolute',
+    position: 'absolute'
   },
   textContent: {
     top: 80,
@@ -44,15 +43,15 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold'
   }
-});
+})
 
-const SIZES = ['small', 'normal', 'large'];
+const SIZES = ['small', 'normal', 'large']
 
 export default class Spinner extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = { visible: this.props.visible, textContent: this.props.textContent };
+  constructor (props) {
+    super(props)
+    this.state = { visible: this.props.visible, textContent: this.props.textContent }
   }
 
   static propTypes = {
@@ -68,29 +67,29 @@ export default class Spinner extends React.Component {
   static defaultProps = {
     visible: false,
     cancelable: false,
-    textContent: "",
+    textContent: '',
     color: 'white',
     dotRadius: 8,
     size: 40, // 'normal',
     overlayColor: 'rgba(0, 0, 0, 0.25)'
   };
 
-  close() {
-    this.setState({ visible: false });
+  close () {
+    this.setState({ visible: false })
   }
 
-  componentWillReceiveProps(nextProps) {
-    const { visible, textContent } = nextProps;
-    this.setState({ visible, textContent });
+  componentWillReceiveProps (nextProps) {
+    const { visible, textContent } = nextProps
+    this.setState({ visible, textContent })
   }
 
-  _handleOnRequestClose() {
+  _handleOnRequestClose () {
     if (this.props.cancelable) {
-      this.close();
+      this.close()
     }
   }
 
-  _renderDefaultContent() {
+  _renderDefaultContent () {
     return (
       <View style={styles.background}>
         <CirclesLoader
@@ -102,16 +101,17 @@ export default class Spinner extends React.Component {
         <View style={styles.textContainer}>
           <Text style={[styles.textContent, this.props.textStyle]}>{this.state.textContent}</Text>
         </View>
-      </View>);
+      </View>)
   }
 
-  _renderSpinner() {
-    const { visible } = this.state;
+  _renderSpinner () {
+    const { visible } = this.state
 
-    if (!visible)
+    if (!visible) {
       return (
         <View />
-      );
+      )
+    }
 
     const spinner = (
       <View style={[
@@ -120,7 +120,7 @@ export default class Spinner extends React.Component {
       ]} key={`spinner_${Date.now()}`}>
         {this.props.children ? this.props.children : this._renderDefaultContent()}
       </View>
-    );
+    )
 
     return (
       <Modal
@@ -130,12 +130,11 @@ export default class Spinner extends React.Component {
         visible={visible}>
         {spinner}
       </Modal>
-    );
-
+    )
   }
 
-  render() {
-    return this._renderSpinner();
+  render () {
+    return this._renderSpinner()
   }
 
 }

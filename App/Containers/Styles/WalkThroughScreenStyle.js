@@ -1,12 +1,12 @@
 import { StyleSheet } from 'react-native'
-import { ApplicationStyles,Metrics } from '../../Themes/'
+import { ApplicationStyles, Metrics } from '../../Themes/'
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
   topLogo: {
     alignSelf: 'center',
     resizeMode: 'contain',
-    width: Metrics.screenWidth * 0.5,
+    width: Metrics.screenWidth * 0.5
   },
   cart: {
     alignSelf: 'center',

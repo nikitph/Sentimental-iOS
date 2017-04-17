@@ -7,24 +7,24 @@ export default StyleSheet.create({
   container: {
     overflow: 'hidden',
     paddingTop: 16,
-    backgroundColor: 'white',
+    backgroundColor: 'white'
   },
   label: {
     fontSize: 18,
     fontFamily: 'Arial',
-    fontWeight: 'bold',
+    fontWeight: 'bold'
   },
   textInput: {
     flex: 1,
     color: 'black',
     fontSize: 18,
     padding: 7,
-    paddingLeft: 0,
+    paddingLeft: 0
   },
   separator: {
     position: 'absolute',
     width: 1,
     backgroundColor: 'orange',
-    marginTop: -8,
-  },
-});
+    marginTop: -8
+  }
+})

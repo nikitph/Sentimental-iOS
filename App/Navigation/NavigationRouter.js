@@ -20,8 +20,8 @@ import MapviewExample from '../Containers/MapviewExample'
 import APITestingScreen from '../Containers/APITestingScreen'
 import ThemeScreen from '../Containers/ThemeScreen'
 import DeviceInfoScreen from '../Containers/DeviceInfoScreen'
-import WalkThroughScreen from "../Containers/WalkThroughScreen";
-import TextInputScreen from "../Containers/TextInputScreen";
+import WalkThroughScreen from '../Containers/WalkThroughScreen'
+import TextInputScreen from '../Containers/TextInputScreen'
 
 /* **************************
 * Documentation: https://github.com/aksonov/react-native-router-flux

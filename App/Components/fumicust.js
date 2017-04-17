@@ -1,21 +1,20 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, Component } from 'react'
 import {
   Animated,
   Text,
   TextInput,
   TouchableWithoutFeedback,
   View,
-  StyleSheet,
-} from 'react-native';
+  StyleSheet
+} from 'react-native'
 
-import BaseInput from 'react-native-textinput-effects/lib/BaseInput';
-import styles from "./Styles/fumicustStyle";
+import BaseInput from 'react-native-textinput-effects/lib/BaseInput'
+import styles from './Styles/fumicustStyle'
 
-const PADDING = 16;
-const ICON_WIDTH = 40;
+const PADDING = 16
+const ICON_WIDTH = 40
 
 export default class Fumicust extends BaseInput {
-
 
   static propTypes = {
     /*
@@ -33,17 +32,17 @@ export default class Fumicust extends BaseInput {
      * Also used as textInput color.
      */
     iconColor: PropTypes.string,
-    height: PropTypes.number,
+    height: PropTypes.number
   };
 
   static defaultProps = {
     height: 150,
     iconColor: '#00aeef',
     animationDuration: 300,
-    blurOnSubmit:false
+    blurOnSubmit: false
   };
 
-  render() {
+  render () {
     const {
       iconClass,
       iconColor,
@@ -52,12 +51,12 @@ export default class Fumicust extends BaseInput {
       style: containerStyle,
       inputStyle,
       height: inputHeight,
-      labelStyle,
-    } = this.props;
-    const { focusedAnim, value } = this.state;
-    const AnimatedIcon = Animated.createAnimatedComponent(iconClass);
-    const ANIM_PATH = PADDING + inputHeight;
-    const NEGATIVE_ANIM_PATH = ANIM_PATH * -1;
+      labelStyle
+    } = this.props
+    const { focusedAnim, value } = this.state
+    const AnimatedIcon = Animated.createAnimatedComponent(iconClass)
+    const ANIM_PATH = PADDING + inputHeight
+    const NEGATIVE_ANIM_PATH = ANIM_PATH * -1
 
     return (
       <View style={[containerStyle, styles.container]} onLayout={this._onLayout}>
@@ -67,65 +66,65 @@ export default class Fumicust extends BaseInput {
             color={iconColor}
             size={20}
             style={{
-                            position: 'absolute',
-                            left: PADDING,
-                            bottom: focusedAnim.interpolate({
-                                inputRange: [0, 0.5, 0.51, 0.7, 1],
-                                outputRange: [75, ANIM_PATH, NEGATIVE_ANIM_PATH, NEGATIVE_ANIM_PATH, 75],
-                            }),
-                            color: focusedAnim.interpolate({
-                                inputRange: [0, 0.5, 1],
-                                outputRange: ['#a3a3a3', iconColor, iconColor],
-                            }),
-                        }}
+              position: 'absolute',
+              left: PADDING,
+              bottom: focusedAnim.interpolate({
+                inputRange: [0, 0.5, 0.51, 0.7, 1],
+                outputRange: [75, ANIM_PATH, NEGATIVE_ANIM_PATH, NEGATIVE_ANIM_PATH, 75]
+              }),
+              color: focusedAnim.interpolate({
+                inputRange: [0, 0.5, 1],
+                outputRange: ['#a3a3a3', iconColor, iconColor]
+              })
+            }}
           />
         </TouchableWithoutFeedback>
         <View
           style={[styles.separator, {
-                        height: inputHeight,
-                        left: ICON_WIDTH + 8,
-                    }]}
+            height: inputHeight,
+            left: ICON_WIDTH + 8
+          }]}
         />
         <TouchableWithoutFeedback onPress={this._focus}>
           <Animated.View style={{
-                        position: 'absolute',
-                        left: ICON_WIDTH + PADDING,
-                        height: inputHeight,
-                        top: focusedAnim.interpolate({
-                            inputRange: [0, 0.5, 0.51, 0.7, 1],
-                            outputRange: [24, ANIM_PATH, NEGATIVE_ANIM_PATH, NEGATIVE_ANIM_PATH, PADDING / 2],
-                        }),
-                    }}>
+            position: 'absolute',
+            left: ICON_WIDTH + PADDING,
+            height: inputHeight,
+            top: focusedAnim.interpolate({
+              inputRange: [0, 0.5, 0.51, 0.7, 1],
+              outputRange: [24, ANIM_PATH, NEGATIVE_ANIM_PATH, NEGATIVE_ANIM_PATH, PADDING / 2]
+            })
+          }}>
             <Animated.Text style={[styles.label, labelStyle, {
-                            fontSize: focusedAnim.interpolate({
-                                inputRange: [0, 0.7, 0.71, 1],
-                                outputRange: [16, 16, 12, 12],
-                            }),
-                            color: focusedAnim.interpolate({
-                                inputRange: [0, 0.7],
-                                outputRange: ['#696969', '#a3a3a3'],
-                            }),
-                        }]}>
+              fontSize: focusedAnim.interpolate({
+                inputRange: [0, 0.7, 0.71, 1],
+                outputRange: [16, 16, 12, 12]
+              }),
+              color: focusedAnim.interpolate({
+                inputRange: [0, 0.7],
+                outputRange: ['#696969', '#a3a3a3']
+              })
+            }]}>
               {label}
             </Animated.Text>
           </Animated.View>
         </TouchableWithoutFeedback>
         <TextInput
-          ref="input"
+          ref='input'
           {...this.props}
           style={[styles.textInput, inputStyle, {
-                        marginLeft: ICON_WIDTH + PADDING,
-                        color: iconColor,
-                    }]}
+            marginLeft: ICON_WIDTH + PADDING,
+            color: iconColor
+          }]}
           value={value}
           onBlur={this._onBlur}
           onFocus={this._onFocus}
           onChange={this._onChange}
-          multiline = {true}
-          numberOfLines = {8}
+          multiline
+          numberOfLines={8}
           underlineColorAndroid={'transparent'}
         />
       </View>
-    );
+    )
   }
 }
