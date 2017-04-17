@@ -3,10 +3,9 @@ import {
   StyleSheet,
   View,
   Text,
-  Modal,
-  ActivityIndicator
+  Modal
 } from 'react-native'
-import {CirclesLoader, PulseLoader, TextLoader, DotsLoader} from 'react-native-indicator'
+import {CirclesLoader} from 'react-native-indicator'
 
 const styles = StyleSheet.create({
   container: {
@@ -44,8 +43,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   }
 })
-
-const SIZES = ['small', 'normal', 'large']
 
 export default class Spinner extends React.Component {
 
