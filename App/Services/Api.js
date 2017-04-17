@@ -2,7 +2,7 @@
 import apisauce from 'apisauce'
 
 // our "constructor"
-const create = (baseURL = 'http://api.openweathermap.org/data/2.5/') => {
+const create = (baseURL = 'https://language.googleapis.com/v1/') => {
   // ------
   // STEP 1
   // ------
@@ -14,16 +14,16 @@ const create = (baseURL = 'http://api.openweathermap.org/data/2.5/') => {
     baseURL,
     // here are some default headers
     headers: {
-      'Cache-Control': 'no-cache'
+      'Content-type': 'application/JSON'
     },
     // 10 second timeout...
     timeout: 10000
-  })
+  });
 
   // Force OpenWeather API Key on all requests
   api.addRequestTransform((request) => {
-    request.params['APPID'] = '0e44183e8d1018fc92eb3307d885379c'
-  })
+    request['key'] = 'AIzaSyCz-86KMvI_tVzthkmyQaiKcYyfP7Sdda8'
+  });
 
   // Wrap api's addMonitor to allow the calling code to attach
   // additional monitors in the future.  But only in __DEV__ and only
@@ -46,7 +46,12 @@ const create = (baseURL = 'http://api.openweathermap.org/data/2.5/') => {
   // Since we can't hide from that, we embrace it by getting out of the
   // way at this level.
   //
-  const getCity = (city) => api.get('weather', {q: city})
+  const getCity = (city) => api.get('weather', {q: city});
+
+  const postSentiment = (params) => api.post('documents:analyzeSentiment?key=AIzaSyCz-86KMvI_tVzthkmyQaiKcYyfP7Sdda8', JSON.stringify({
+    encodingType: 'UTF8',
+    document: {type: 'PLAIN_TEXT', content: params}
+  }));
 
   // ------
   // STEP 3
@@ -62,7 +67,8 @@ const create = (baseURL = 'http://api.openweathermap.org/data/2.5/') => {
   //
   return {
     // a list of the API functions from step 2
-    getCity
+    getCity,
+    postSentiment
   }
 }
 

@@ -1,5 +1,5 @@
 // @flow
-import React from "react";
+import React, {PropTypes} from "react";
 import {ScrollView, Text, KeyboardAvoidingView, View, Clipboard} from "react-native";
 import {connect} from "react-redux";
 // Add Actions - replace 'Your' with whatever your reducer is called :)
@@ -10,6 +10,9 @@ import Fumicust from "../Components/fumicust";
 // Styles
 import styles from "./Styles/TextInputScreenStyle";
 import RoundedButton from "../Components/RoundedButton";
+import SentimentActions from '../Redux/SentimentRedux';
+import {CirclesLoader, PulseLoader, TextLoader, DotsLoader} from 'react-native-indicator';
+import Spinner from '../Components/Spinner'
 // I18n
 
 class TextInputScreen extends React.Component {
@@ -34,6 +37,7 @@ class TextInputScreen extends React.Component {
   render() {
     return (
       <ScrollView style={styles.container}>
+        <Spinner visible={this.props.isfetching}/>
         <KeyboardAvoidingView behavior='position'>
           <Fumicust
             ref="desc"
@@ -64,7 +68,7 @@ class TextInputScreen extends React.Component {
 
         <View style={{backgroundColor:'#F7EDD3',justifyContent:'center', alignItems:'center'}}>
 
-          <RoundedButton onPress={()=>this.setText()}>
+          <RoundedButton onPress={()=>this.props.sentimentReq(this.state.desc)}>
             Submit
           </RoundedButton>
         </View>
@@ -77,12 +81,28 @@ class TextInputScreen extends React.Component {
 
 }
 
+TextInputScreen.propTypes = {
+
+  sentimentReq: PropTypes.func,
+  sentiment: PropTypes.obj,
+  isfetching: PropTypes.bool
+
+};
+
 const mapStateToProps = (state) => {
-  return {}
+  console.tron.log(state.sentiment.fetching);
+  return {
+    isfetching: state.sentiment.fetching,
+    sentiment: state.sentiment.payload
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {}
+  return {
+
+    sentimentReq: (params) => dispatch(SentimentActions.sentimentRequest(params))
+
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TextInputScreen)
