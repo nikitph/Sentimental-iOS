@@ -25,14 +25,17 @@ class WalkThroughScreen extends React.Component {
           <View style={{backgroundColor: '#F7EDD3', justifyContent: 'center', alignItems: 'center'}}>
             <Animatable.Image animation='fadeIn' source={Images.senti} style={[styles.topLogo]} />
             <Text
-              style={{fontFamily: 'American Typewriter', textAlign: 'center', color: '#8F7140', fontSize: 16, marginLeft: 25, marginRight: 25, marginTop: -20}}>
-              Thank you for choosing Udayam. The Sunrise-Sunset calculator</Text>
+              style={{fontFamily: 'Avenir', textAlign: 'center', color: '#751C18', fontSize: 32, marginLeft: 25, marginRight: 25, marginTop: -100}}>
+              Sentimental</Text>
+            <Text
+              style={{fontFamily: 'Avenir Next', textAlign: 'center', color: '#8F7140', fontSize: 16, marginLeft: 25, marginRight: 25, marginTop: 20}}>
+              Thank you for choosing Sentimental. Swipe left to get started</Text>
 
           </View>
           <View style={{backgroundColor: '#F7EDD3', justifyContent: 'center', alignItems: 'center'}}>
             <Animatable.Image animation='fadeIn' source={Images.explain} style={[styles.cart]} />
             <Text
-              style={{fontFamily: 'American Typewriter', textAlign: 'center', color: '#8F7140', fontSize: 16, marginLeft: 25, marginRight: 25, marginTop: -75}}>
+              style={{fontFamily: 'Avenir', textAlign: 'center', color: '#8F7140', fontSize: 16, marginLeft: 25, marginRight: 25, marginTop: -75}}>
               Just Select and copy-paste or type in the text you want to analyze and click analyze. Thats it. </Text>
             <View style={{marginTop: 75}}>
               <RoundedButton onPress={NavigationActions.tis}>

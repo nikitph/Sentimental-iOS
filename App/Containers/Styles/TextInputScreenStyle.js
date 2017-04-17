@@ -38,7 +38,10 @@ export default StyleSheet.create({
     flexDirection: 'row'
   },
   text: {
-    color: '#fff',
-    fontSize: 16
+    color: '#482e19',
+    fontSize: 16,
+    fontWeight: '400',
+    fontFamily: 'Avenir',
+    textAlign: 'center'
   }
 })
